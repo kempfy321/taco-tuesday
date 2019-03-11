@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import taco_making from './taco_making.gif'
+
 import './App.css'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
-import RandomTaco from "./RandomTaco"
+import RandomTaco from './RandomTaco'
+import Header from './Header'
 
 
 class App extends Component {
@@ -19,34 +20,28 @@ class App extends Component {
     const json = await res.json()
 
     this.setState({ taco: json })
+    console.log(json.base_layer.name)
   }
 
 
-  dayOfWeek = () => {
-    let today = new Date()
-    let thisDay = today.getDay()
-    let myDays =["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
-    return myDays[thisDay]
+  clickHandler(){
+    
+    console.log("CLICK")
   }
 
   render() {
-    console.log(this.state.taco)
+    //console.log(this.state.taco.base_layer)
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
-            <img src={taco_making} className="App-logo" alt="logo" />
-            <h3>Taco {this.dayOfWeek()}</h3>
-
-
-
-            <button className="button">  <Link
-                style={{display: 'block', height: '100%'}}
-                to="/randomtaco">RANDOM TACO</Link>
-            </button>
-
-          </header>
-         {/* <Route exact path="/" component={App} /> */}
+          <Header />
+          <button onClick={this.clickHandler} className="button">
+            <Link
+              style={{display: 'block', height: '100%'}}
+              to="/randomtaco">RANDOM TACO
+            </Link>
+          </button>
+         {/* <Route exact path="/" component={Home} />  */}
          <Route path="/randomtaco" component={RandomTaco} />
          {/* <Route path="/topics" component={Topics} /> */}
         </div>
