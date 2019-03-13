@@ -1,13 +1,12 @@
 import React from 'react'
 
-class RandomTaco extends React.Component {
-  render(){
+function RandomTaco(props) {
     return (
         <div>
-            <h1>RANDOM TACO</h1>
+            <h1>taco: {props.taco}</h1>
         </div>
     )
   }
-}
+
 
 export default RandomTaco
