@@ -4,9 +4,11 @@ import { BrowserRouter as Router, Route } from "react-router-dom"
 
 import Header from './Header'
 import LinkGenerator from './LinkGenerator'
-import RandomTaco from './RandomTaco'
+// import RandomTaco from './RandomTaco'
 import RandomDrink from './RandomDrink'
 // import RandomDrink from './RandomDrink'
+import DrinkByName from './DrinkByName'
+import DrinkByAlcohol from './DrinkByAlcohol'
 
 
 
@@ -16,8 +18,10 @@ function App() {
       <div>
         <Header />
         <LinkGenerator />
-       <Route path="/randomtaco" component={RandomTaco} />
+       {/* <Route path="/randomtaco" component={RandomTaco} /> */}
        <Route path="/randomdrink" component={RandomDrink} />
+       <Route path="/drinkbyname" component={DrinkByName} />
+       <Route path="/drinkbyalcohol" component={DrinkByAlcohol} />
      </div>
     </Router>
   )

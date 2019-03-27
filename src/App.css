@@ -36,3 +36,17 @@
   color: black;
   background: pink;
 }
+
+.list {
+  list-style-type: none;
+}
+
+.recipe {
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: left;
+}
+
+.recipeCard {
+  text-align: center;
+}

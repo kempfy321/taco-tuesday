@@ -20,19 +20,26 @@ class LinkGenerator extends Component {
         <button className="button">
           <Link
             style={{display: 'block', height: '100%'}}
-            to="/">REFRESH
+            to="/">Home
           </Link>
         </button>
-        <button className="button">
+
+        <button onClick={this.handleClick} className="button">
           <Link
             style={{display: 'block', height: '100%'}}
-            to="/randomtaco">RANDOM TACO
+            to="/randomdrink">Random Drink
           </Link>
         </button>
         <button onClick={this.handleClick} className="button">
           <Link
             style={{display: 'block', height: '100%'}}
-            to="/randomdrink">RANDOM DRINK
+            to="/drinkbyname">Drink By Name
+          </Link>
+        </button>
+        <button onClick={this.handleClick} className="button">
+          <Link
+            style={{display: 'block', height: '100%'}}
+            to="/drinkbyalcohol">Drink By Alcohol
           </Link>
         </button>
       </div>
