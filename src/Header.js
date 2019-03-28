@@ -1,9 +1,10 @@
 import React from 'react'
 
-import taco_making from './taco_making.gif'
+import glitter_drink from './glitter_drink.gif'
 
 class Header extends React.Component {
 
+// returns day of the week
   dayOfWeek = () => {
     let today = new Date()
     let thisDay = today.getDay()
@@ -15,8 +16,8 @@ class Header extends React.Component {
     return(
       <div>
         <header className="App-header">
-          <img src={taco_making} className="App-logo" alt="logo" />
-          <h3>Taco {this.dayOfWeek()}</h3>
+          <img src={glitter_drink} className="App-logo" alt="logo" />
+          <h3>Boozy {this.dayOfWeek()}</h3>
         </header>
       </div>
     )

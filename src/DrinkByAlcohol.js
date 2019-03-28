@@ -26,27 +26,33 @@ class DrinkByAlcohol extends Component {
   };
   render() {
     const results = this.state.drinks.drinks.filter(p => this.state.drinks.drinks.length)
-    console.log("**");
-    console.log(results);
-    console.log("**");
+    
+    // console.log("**");
+    // console.log(results);
+    // console.log("**");
     return (
         <div className="App">
           <div className="search">
             <input
               type="text"
+              className="textBox"
+              placeholder="ex: Gin"
               value={this.state.search}
               onChange={this.onSearchChange}
             />
-            <ul>
-              {results.map(r => (
-                <li>{r.strDrink}</li>
-              ))}
-            </ul>
-            <button type="drinkAlcohol" onClick={this.DrinkByAlcohol}>Drink By Alcohol!</button>
+            <button
+              type="drinkAlcohol"
+              className="button"
+              onClick={this.DrinkByAlcohol}>Drink By Alcohol!
+            </button>
+              <ul>
+                {results.map(r => (
+                  <li className="list">{r.strDrink}</li>
+                ))}
+              </ul>
           </div>
-          <div className="recipeCard">
-            {/* <h1>{this.state.drinks.drinks[0].strDrink}</h1> */}
-         </div>
+          {/* <div className="recipeCard">
+         </div> */}
        </div>
     )
   }

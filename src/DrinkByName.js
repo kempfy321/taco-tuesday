@@ -15,33 +15,33 @@ class DrinkByName extends Component {
     }
   }
 
-
-
   onSearchChange = event => {
     this.setState({ search: event.target.value});
-    console.log("searching " + this.state.search);
+    // console.log("searching " + this.state.search);
   };
 
   drinkByName = async drinks =>{
-    console.log(this.state.search);
+    // console.log(this.state.search);
     if (this.state.search !== undefined){
     this.setState({drinks: await callDrinkApi("searchByName", this.state.search)})
-    console.log(this.state.drinks)
-    // console.log(JSON.stringify(this.state.drink.drinks[0].strDrink))
-    // console.log(this.state.drinks.drinks[0])
+    // console.log(this.state.drinks)
 
     for (var prop in this.state.drinks.drinks[0]){
       if (this.state.drinks.drinks[0].hasOwnProperty(prop)){
+        // if drink has ingredients that are not null or blank
         if (prop.indexOf('strIngredient') > -1){
           if (this.state.drinks.drinks[0][prop] !== null &&
               this.state.drinks.drinks[0][prop] !== "") {
+                // stores valid ingredients
             let stringIngredient = this.state.drinks.drinks[0][prop]
             this.setState({ingredients: this.state.ingredients.concat(stringIngredient)})
           }
+          // checks for measurements of ingredients
         } else if (prop.indexOf('strMeasure') > -1){
           if (this.state.drinks.drinks[0][prop] !== null &&
               this.state.drinks.drinks[0][prop] !== " " &&
               this.state.drinks.drinks[0][prop] !== ""  ) {
+                // store valid measurements
             let stringMeasurement = this.state.drinks.drinks[0][prop]
             // console.log(stringMeasurement)
             this.setState({measurements: this.state.measurements.concat(stringMeasurement)})
@@ -49,33 +49,36 @@ class DrinkByName extends Component {
         }
       }
     }
-
+// combines measurements with ingredients
     for (var i in this.state.ingredients){
       console.log(i + " -- " + this.state.ingredients[i])
-      this.setState({allIngredients: this.state.allIngredients.concat(this.state.measurements[i] + " " + this.state.ingredients[i])})
+      this.setState(
+        {allIngredients:
+        this.state.allIngredients
+        .concat(this.state.measurements[i] + " " + this.state.ingredients[i])
+      })
     }
   }
-    // console.log(this.state.allIngredients)
+
   };
   render() {
-    // if (this.state.search.length == 0){
-    //   console.log("Error");
-    // }
 
     return (
         <div className="App">
           <div className="search">
             <input
+              className="textBox"
               type="text"
+              placeholder="ex: Martini"
               value={this.state.search}
               onChange={this.onSearchChange}
             />
-            <ul>
-              {/* {results.map(r => (
-                <li onClick={() => this.selectPokemon(r.name)}>{r.name}</li>
-              ))} */}
-            </ul>
-            <button type="drinkName" onClick={this.drinkByName}>Drink By Name!</button>
+
+            <button
+              className="button"
+              type="drinkName"
+              onClick={this.drinkByName}>Drink By Name!
+            </button>
           </div>
           <div className="recipeCard">
             <h1>{this.state.drinks.drinks[0].strDrink}</h1>

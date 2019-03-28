@@ -16,7 +16,7 @@ let callDrinkApi = async (name, searchInput) => {
 
     const json = await res.json()
 
-    console.log('drinks on me', json)
+    // console.log('drinks on me', json)
 
     // return the json
     return json;
