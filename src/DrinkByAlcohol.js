@@ -26,7 +26,7 @@ class DrinkByAlcohol extends Component {
   };
   render() {
     const results = this.state.drinks.drinks.filter(p => this.state.drinks.drinks.length)
-    
+
     // console.log("**");
     // console.log(results);
     // console.log("**");
