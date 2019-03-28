@@ -3,8 +3,9 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 15vmin;
+  /* animation: App-logo-spin infinite 1s linear; */
+  transform: rotate(25deg);
+  height: 30vmin;
   pointer-events: none;
 }
 
@@ -23,16 +24,38 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
+    transform: rotate(25deg);
+  }
+  to {
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(25deg);
   }
-}
+} */
 
 .button {
   color: black;
   background: pink;
+  width: 150px
 }
+
+.list {
+  list-style-type: none;
+}
+
+.recipe {
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: left;
+}
+
+.recipeCard {
+  text-align: center;
+}
+
+ .textBox {
+   border-style: groove;
+ }
